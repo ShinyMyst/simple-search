@@ -1,15 +1,13 @@
 import nltk
 # nltk.download('averaged_perceptron_tagger')
 
-
-
-
+# Resource Links
 gform_access_issue = 'omit'
 form_purchase_request = 'omit'
 subitup_duty_calendar = 'omit'
 googlesite_duty = 'omit'
 googlesite_care = 'omit'
-drive_pdf_assigning_care = 'omit'        
+drive_pdf_assigning_care = 'omit'
 
 # Tags 
 tag_dict = {
@@ -30,13 +28,12 @@ def convert_link(uri, label=None):
         escape_mask = '\033]8;{};{}\033\\{}\033]8;;\033\\'
         return escape_mask.format(parameters, uri, label)
 
+
 def filter_nouns(word_list:list):
         """Filter out all nouns from a list of words."""
         # Must uncomment nltk.download if this function is used.
         tagged_sentence = nltk.pos_tag(words)
                
-
-
 
 def search_for_tag(tag):
         matches = {}
@@ -56,7 +53,6 @@ class BasicSearch:
                 for word in self._word_list:
                         self._count_matches(word)
                 return self.get_highest_match()
-
 
 
         def generate_word_list(self):
@@ -85,7 +81,6 @@ class BasicSearch:
                 return max(self._matches, key=self._matches.get)
                 
 
-
 def main():
         search = BasicSearch()
         while True:
@@ -97,8 +92,12 @@ def main():
                 break
 
 
-
-
-
 if __name__ == "__main__":
         main()
+
+
+# Refactor and organize code.
+# Use GitHub to utilize variables at top as secret
+# Alternatively, just use an external json file that's not uploaded.
+# Use inputs rather than always using self on some of the functions for easier readability
+# Try hosting a bot that can utilize this function
